@@ -29,6 +29,13 @@
 	
 	<!-- Owl Carousel Assets -->
     <link href="./owl-carousel/owl.carousel.css" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
 	<!--[if lt IE 8]>
        <div style=' clear: both; text-align:center; position: relative;'>
          <a href="http://windows.microsoft.com/en-US/internet-explorer/Items/ie/home?ocid=ie6_countdown_bannercode">
@@ -117,20 +124,39 @@
 									<div id="comment">
 										<h3>Leave a Reply</h3>
 										<span>Your email address will not be published. Required fields are marked </span>
-										<form name="comment_form" id="comment_form" method="post" action="">
-											<label>
-											<span>Comment:</span>
-											<textarea name="message" id="message"></textarea>
-											</label>
-											<label>
-											<span>Name:</span>
-											<input type="text"  name="name" id="name" required>
-											</label>
-											<label>
-											<span>Email:</span>
-											<input type="email"  name="email" id="email" required>
-											</label>
-											<center><input class="sendButton" type="submit" name="submitcomment" value="Submit"></center>
+										<form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+											  action="https://script.google.com/macros/s/AKfycbziLbV-uIr_07vUIGhjw1Urte-b1mml3YsP03TCuQ-LWfQwFBU/exec">
+											<!-- change the form action to your script url -->
+
+											<div class="form-elements">
+												<fieldset class="pure-group">
+													<label for="name">Name: </label>
+													<input id="name" name="name" placeholder="What your Mom calls you" />
+												</fieldset>
+
+												<fieldset class="pure-group">
+													<label for="message">Message: </label>
+													<textarea id="message" name="message" rows="10"
+															  placeholder="Tell us what's on your mind..."></textarea>
+												</fieldset>
+
+												<fieldset class="pure-group">
+													<label for="email"><em>Your</em> Email Address:</label>
+													<input id="email" name="email" type="email" value=""
+														   required placeholder="your.name@email.com"/>
+													<span class="email-invalid" style="display:none">
+          Must be a valid email address</span>
+												</fieldset>
+												<button class="button-success pure-button button-xlarge">
+													<i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+											</div>
+
+											<!-- Customise the Thankyou Message People See when they submit the form: -->
+											<div class="thankyou_message" style="display:none;">
+												<h2><em>Thanks</em> for contacting us!
+													We will get back to you soon!</h2>
+											</div>
+
 										</form>
 									</div>
 								</div>
@@ -235,5 +261,8 @@ It’s the story behind the photos.</p>
 			</div>
 		</footer>
 	</div>
+
+	<!-- Submit the Form to Google Using "AJAX" -->
+	<script data-cfasync="false" src="./js/form-submission-handler.js"></script>
 </body>
 </html>
